@@ -1,24 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bloccit</title>
+    <%= favicon_link_tag asset_path('base_logo.png'), :rel => 'icon', :type =>  'image/png' %>
+    <title >Blocipedia</title>
     <%= csrf_meta_tags %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
   </head>
 
   <body>
-    <ul>
     <div class="container">
-      <ul class="nav nav-tabs">
-        <li><%= link_to "Home", welcome_index_path %></li>
-        <li><%= link_to "About", welcome_about_path %></li>
-      </ul>
+      <nav class="container-fluid">
+        <ul class="nav nav-tabs">
+          <li class="<%= 'active' if current_page?(welcome_index_path) %>"><%= link_to "Home", welcome_index_path %></li>
+          <li class="<%= 'active' if current_page?(welcome_about_path) %>"><%= link_to "About", welcome_about_path %></li>
 
-      <%= yield %>
+          <% if user_signed_in? %>
+            <li class="pull-right"><%= link_to "#{current_user.email} - Logout", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %>
+            <li class="pull-right"><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+          <% end %>
+
+          </ul>
+      </nav>  
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>  
+    <%= yield %>
     </div>
-
+    
+    <footer class="page-footer">
+      <nav class="navbar fixed-bottom">
+      <!--Social buttons-->
+        <div class="text-center"><br>
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm btn-fb mx-1" href="http://www.facebook.com<%= yield :url %>" target="_blank">
+                <i class="fa fa-facebook"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm btn-tw mx-1" href="http://www.twitter.com<%= yield :url %>" target="_blank">
+                <i class="fa fa-twitter"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm btn-gplus mx-1" href="http://www.google-plus.com<%= yield :url %>" target="_blank">
+                <i class="fa fa-google-plus"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm btn-li mx-1" href="http://www.linkedin.com<%= yield :url %>" target="_blank">
+                <i class="fa fa-linkedin"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn-floating btn-sm btn-dribbble mx-1" href="http://www.dribble.com<%= yield :url %>" target="_blank">
+                <i class="fa fa-dribbble"> </i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      <!--/.Social buttons-->
+      </nav>
+    </footer>
   </body>
 </html>

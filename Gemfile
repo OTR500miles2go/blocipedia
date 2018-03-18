@@ -44,6 +44,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'thor', '0.20.0'
 
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 gem 'autoprefixer-rails'
 
 # Used for encrypting passwords
@@ -55,3 +57,4 @@ end
 
 # Use Figaro for private variables
 gem 'figaro', '1.0'
+gem 'devise'
