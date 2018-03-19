@@ -6,7 +6,12 @@
 
     <div class="field">
       <br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: :email %>
+      <%= f.text_field :username, autofocus: true, placeholder: :username %>
+    </div>
+    
+    <div class="field">
+      <br />
+      <%= f.email_field :email, autocomplete: "email", placeholder: :email %>
     </div>
 
     <div class="field">
