@@ -93,15 +93,15 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Default URL for mailer/Devise
-  config.action_mailer.default_url_options = { host: 'https://sheltered-sands-47862.herokuapp.com' }  
+  config.action_mailer.default_url_options = { host: 'https://pacific-waters-69595.herokuapp.com' }  
   
   # Mailer
-  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+  config.action_mailer.default_url_options = {:host => 'dianegayden@gmail.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "127.0.0.1",
     :port    => 25,
-    :domain  => 'yourdomain.com'
+    :domain  => 'dianegayden@gmail.com'
   }
 
 end
