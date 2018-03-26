@@ -18,14 +18,19 @@ group :development do
   # Use sqlite3 as the development database for Active Record
   gem 'sqlite3'
   gem 'pry-rails'
+  gem 'listen', '~> 3.0.5'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
   gem 'shoulda'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_bot_rails'
 end
+
+group :test do
+  gem 'database_cleaner'
+end 
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -51,10 +56,7 @@ gem 'autoprefixer-rails'
 # Used for encrypting passwords
 gem 'bcrypt'
 
-group :development do
-  gem 'listen', '~> 3.0.5'
-end
-
+# Flexible authentication solution for Rails with Warden.
 gem 'devise'
 
 # Use Figaro for private variables
