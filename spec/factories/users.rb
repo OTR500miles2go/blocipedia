@@ -3,7 +3,7 @@ FactoryBot.define do
 
   factory :user do
     username RandomData.random_name
-    sequence(:email){ |n| "user#{n}@factory.com" }
+    role :standard
     password pw
     password_confirmation pw
   end

@@ -62,3 +62,8 @@ gem 'devise'
 # Use Figaro for private variables
 gem 'figaro', '1.0'
 
+# Use Pundit authorization system.
+gem 'pundit'
+
+
+
