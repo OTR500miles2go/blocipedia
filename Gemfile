@@ -65,5 +65,8 @@ gem 'figaro', '1.0'
 # Use Pundit authorization system.
 gem 'pundit'
 
+# Seeding Data
+gem 'faker'
+
 
 
