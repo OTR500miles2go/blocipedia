@@ -1,10 +1,10 @@
 <h1>
   <%= @wiki.title %>
   <br />
+  <%= current_user.role %>
 </h1>
 
-<% if  (@wiki.private && current_user && current_user!=@wiki.user) ||
-        @wiki.private && !current_user %>
+<% if  ((@wiki.private && current_user && current_user!=@wiki.user) || @wiki.private && !current_user ) && current_user.role!="premium" %>
 
   <h4> PRIVATE WIKI: YOU DONT HAVE ACCESS.</h4>
 

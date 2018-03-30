@@ -65,5 +65,17 @@ gem 'figaro', '1.0'
 # Use Pundit authorization system.
 gem 'pundit'
 
+# Seeding Data
+gem 'faker'
+
+# Use Stripe internet payment app
+gem 'stripe'
+
+# Use to load environment variables from '.env'
+gem 'dotenv-rails', :groups => [:development, :test]
+
+
+
+
 
 
