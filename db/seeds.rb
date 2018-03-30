@@ -20,6 +20,15 @@ users= User.all
     )
 end
 
+10.times do
+    Wiki.create!(
+        user: users.sample,
+        title: Faker::LeagueOfLegends.champion,
+        body: Faker::LeagueOfLegends.quote,
+        private: true
+    )
+end
+
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Wiki.count} wikis created"

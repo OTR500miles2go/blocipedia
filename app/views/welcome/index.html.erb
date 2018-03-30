@@ -8,12 +8,18 @@
     <div class="container">
     <div class="row">
       <div class="col-sm-6" style="background-color:yellow;">
-        <h3 class="text-center">Basic Wiki Service</h3>
+        <h3 class="text-center">Standard Wiki Service</h3>
         <p>Lorem ipsum...</p>
+        <div class="col-md-4">
+          <%= link_to "Get Standard Service", downgrade_path, class: 'btn btn-success' %>
+        </div>
       </div>
       <div class="col-sm-6" style="background-color:orange;">
         <h3 class="text-center">Premium Wiki Service</h3>
         <p>Sed ut perspiciatis...</p>
+        <div class="col-md-4">
+          <%= link_to "Get Premium Service", new_charge_path, class: 'btn btn-success' %>
+        </div>
       </div>
     </div>
   </div>

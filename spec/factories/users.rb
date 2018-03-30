@@ -3,6 +3,7 @@ FactoryBot.define do
 
   factory :user do
     username RandomData.random_name
+    email RandomData.random_email
     role :standard
     password pw
     password_confirmation pw

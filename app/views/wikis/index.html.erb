@@ -12,7 +12,14 @@
         <div class="media">
           <div class="media-body">
             <h4 class="media-heading"><p><%= link_to wiki.title, wiki %></p></h4>
-            <small><p><%= wiki.body%></p></small>
+
+            
+            <% if (wiki.private) %> 
+              <h4> PRIVATE WIKI: YOU DONT HAVE ACCESS.</h4>
+            <% else %>
+              <small><p><%= wiki.body%></p></small>
+            <% end %>  
+
           </div>
         </div>
       <% end %>
