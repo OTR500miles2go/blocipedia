@@ -21,11 +21,11 @@ class WikisController < ApplicationController
    @wiki.private = params[:wiki][:private]
    @wiki.user = current_user
    if @wiki.save
-     flash[:notice] = "Your wiki was saved."
-     redirect_to @wiki
+      flash[:notice] = "Your wiki was saved."
+      redirect_to @wiki
    else
-     flash[:alert] = "Something went wrong. Please try again."
-     render :new
+      flash[:alert] = "Something went wrong. Please try again."
+      render :new
    end
   end
 
@@ -42,11 +42,11 @@ class WikisController < ApplicationController
     @wiki.private = params[:wiki][:private]
     @wiki.user = current_user
     if @wiki.save
-      flash[:notice] = "Your wiki was updated."
-      redirect_to @wiki
+        flash[:notice] = "Your wiki was updated."
+        redirect_to @wiki
     else
-      flash.now[:alert] = "Your change was not saved. Please try again."
-      render :edit
+        flash.now[:alert] = "Your change was not saved. Please try again."
+        render :edit
     end
   end
 
@@ -54,11 +54,11 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     authorize @wiki
     if @wiki.destroy
-      flash[:notice] = "\"#{@wiki.title}\" was deleted!"
-      redirect_to wikis_path
+        flash[:notice] = "\"#{@wiki.title}\" was deleted!"
+        redirect_to wikis_path
     else
-      flash.now[:alert] = "Unable to delete, please try again."
-      render :show
+        flash.now[:alert] = "Unable to delete, please try again."
+        render :show
     end
   end
 

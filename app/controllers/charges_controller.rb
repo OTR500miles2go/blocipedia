@@ -22,20 +22,21 @@ class ChargesController < ApplicationController
       currency: 'usd'
     )
 
-    flash[:notice] = "Thanks for subcribing, #{current_user.username}! You are now a premium member."
-    current_user.premium!
-    redirect_to wikis_path
+      flash[:notice] = "Thanks for subcribing, #{current_user.username}! You are now a premium member."
+      current_user.premium!
+      redirect_to wikis_path
+
 
     rescue Stripe::CardError => e
-      flash[:alert] = e.message
-      redirect_to new_charge_path
+        flash[:alert] = e.message
+        redirect_to new_charge_path
   end
 
   private
 
   def user_not_authorized
-    flash[:alert] = "You are not authorized to perform this action."
-    redirect_to wikis_path
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to wikis_path
   end
  
 end
