@@ -74,6 +74,9 @@ gem 'stripe'
 # Use to load environment variables from '.env'
 gem 'dotenv-rails', :groups => [:development, :test]
 
+# Use markdown
+gem 'redcarpet'
+
 
 
 
