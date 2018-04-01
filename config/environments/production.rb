@@ -29,7 +29,10 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-
+  
+  # Devise setting for Heroku
+  config.assets.initialize_on_precompile = false
+  
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -88,14 +91,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
+  
   # Mailer
-  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+  config.action_mailer.default_url_options = {:host => 'https://pacific-waters-69595.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
-    :port    => 25,
-    :domain  => 'yourdomain.com'
+    :address => "smtp.sendgrid.net",
+    :port    => 587,
+    :domain  => 'https://pacific-waters-69595.herokuapp.com',
+    :authentication => :plain,
+    :user_name => 'apikey',
+    :password => Rails.application.secrets.sendgrid_api_key
   }
 
 end

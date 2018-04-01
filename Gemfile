@@ -55,6 +55,8 @@ group :development do
   gem 'listen', '~> 3.0.5'
 end
 
+gem 'devise'
+
 # Use Figaro for private variables
 gem 'figaro', '1.0'
-gem 'devise'
+

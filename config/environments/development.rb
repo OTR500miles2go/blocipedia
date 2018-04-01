@@ -1,6 +1,16 @@
 Rails.application.configure do
   # Configure devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.perform_deliveries = true
+  
+  # Don't put mailcatcher into your Gemfile. 
+  # It will conflict with your applications gems at some point.
+  # From the terminal:
+
+  # gem install mailcatcher
+  # mailcatcher
+  # Go to http://localhost:1080/
+  # Send mail through smtp://localhost:1025
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { address: 'localhost', port: 1025}
   
