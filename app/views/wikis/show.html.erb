@@ -3,12 +3,6 @@
   <br />
 </h1>
 
-<% if  ((@wiki.private && current_user && current_user!=@wiki.user) || @wiki.private && !current_user ) && current_user.role!="premium" %>
-
-  <h4> PRIVATE WIKI: YOU DONT HAVE ACCESS.</h4>
-
-<% else %>
-
   <div class="container">
     <div class="jumbotron">
       <br /><p><%= @wiki.body %></p>
@@ -17,6 +11,11 @@
       </small>
     </div>
   </div>
+
+  <p>
+    <strong>Collaborators: </strong>
+    <%= render partial: 'collaborators/show' %>
+  </p>
 
   <h2>
     <div class="col-md-4">
@@ -30,4 +29,4 @@
     </div>  
   </h2>
 
-<% end %>
+

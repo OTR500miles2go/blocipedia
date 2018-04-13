@@ -3,6 +3,9 @@
     <div class="col-sm-6" style="background-color:yellow;">
       <h2 class="text-center">Your service has been downgraded. </h2>
       <p class="text-center">Any private wikis created by you are now public.</p>
+      <br />
+      <p>If you are sure to proceed, please click the button.</p>
+      <%= button_to "Cancel Premium Membership", user_path(current_user), class: 'btn btn-warning', method: :put,  data: { confirm: 'Are you sure you want to downgrade your membership?'} %> 
     </div>
   </div>
 </div>

@@ -1,20 +1,12 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
 
-  def downgrade
-    current_user.standard!
+  def update 
+    update_role("standard")
+    redirect_to root_path
+  end 
 
-    @wikis = Wiki.all
-
-    if current_user.standard?
-      @wikis = Wiki.where(private: true)
-      #binding.pry
-      @wikis.each do |wiki|
-        wiki.private = false
-        wiki.save! 
-      end
-    end
- 
-  end
-
+  private
+  def update_role(new_role)
+    current_user.update_attribute(:role, new_role)
+  end 
 end

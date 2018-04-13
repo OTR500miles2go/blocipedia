@@ -16,7 +16,7 @@
   <div class="col-md-4"></div>
   <div class="col-md-4">
     <%= form_tag charges_path do %>
-      <h4>Upgrade today for $5.00<% Amount.default %></h4>
+      <h4>Upgrade today for $5.00</h4>
       <script class='stripe-button'
         src="https://checkout.stripe.com/checkout.js"
         data-key="<%= @stripe_btn_data[:key] %>"

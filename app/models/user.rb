@@ -1,15 +1,22 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  has_many :collaborators
+  has_many :wikis, through: :collaborators
 
-  has_many :wikis
+  after_initialize :assign_role
+  before_update :downgrade
 
-  enum role: [:standard, :premium, :admin]
+  devise :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  after_initialize :initialize_role, :if => :new_record?
+  enum role: [:admin, :premium, :standard, :guest]
 
-  private
-    def initialize_role
-      self.role ||= :standard
-    end
+  def assign_role
+    self.role ||= :standard
+  end
+
+  def downgrade
+    wikis = Wiki.where(user_id: self.id)
+    wikis.update_all(private: false)
+  end
+
 end
