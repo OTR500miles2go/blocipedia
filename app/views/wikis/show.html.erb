@@ -1,11 +1,11 @@
 <h1>
-  <%= @wiki.title %>
+  <%= markdown(@wiki.title) %>
   <br />
 </h1>
 
   <div class="container">
     <div class="jumbotron">
-      <br /><p><%= @wiki.body %></p>
+      <br /><p><%= markdown(@wiki.body) %></p>
       <small class="text-muted">
         Created: <%= @wiki.created_at.to_formatted_s(:short) %> By: <%= @wiki.user.username %>
       </small>
