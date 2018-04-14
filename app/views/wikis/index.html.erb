@@ -6,23 +6,19 @@
 <br />
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <% @wikis.each do |wiki| %>
-        <div class="media">
-          <div class="media-body">
-            <h4 class="media-heading"><p><%= link_to markdown(wiki.title), wiki %></p></h4>
-
-            
-            <% if (wiki.private && !current_user.premium? ) %> 
-              <h4> PRIVATE WIKI: YOU DONT HAVE ACCESS.</h4>
-            <% else %>
+ us10-wiki-collaborators
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-8">
+        <% @wikis.each do |wiki| %>
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading"><p><%= link_to markdown(wiki.title), wiki %></p></h4>          
               <small><p><%= markdown(wiki.body)%></p></small>
-            <% end %>  
-
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

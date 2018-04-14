@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
     @stripe_btn_data = {
       key: "#{Rails.configuration.stripe[:publishable_key] }",
       description: "Blocipedia Premium Membership - #{current_user.username}",
-      amount: Amount.default
+      amount: default
     }
   end
 
@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       customer: customer.id,
-      amount: Amount.default,
+      amount: default,
       description: "Blocipedia Premium Membership - #{current_user.email}",
       currency: 'usd'
     )
@@ -32,11 +32,9 @@ class ChargesController < ApplicationController
         redirect_to new_charge_path
   end
 
-  private
-
-  def user_not_authorized
-      flash[:alert] = "You are not authorized to perform this action."
-      redirect_to wikis_path
+private
+  def default
+    return 500
   end
  
 end
